@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga CSV Emprendimientos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            margin: 20px 0;
+            width: 100%;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .info {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 8px;
+        }
+        
+        .info h3 {
+            color: #2d3748;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            color: #4a5568;
+            font-size: 14px;
+            line-height: 1.8;
+            list-style-position: inside;
+        }
+        
+        .barrios {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .barrio-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background: #48bb78;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏢 Emprendimientos CABA</h1>
+        <p class="subtitle">Barrios Premium - Capital Federal</p>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">105</div>
+                <div class="stat-label">EMPRENDIMIENTOS</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">BARRIOS</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">GEOLOCALIZADOS</div>
+            </div>
+        </div>
+        
+        <div class="barrios">
+            <span class="barrio-tag">📍 Palermo (20)</span>
+            <span class="barrio-tag">📍 Belgrano (20)</span>
+            <span class="barrio-tag">📍 Nuñez (34)</span>
+            <span class="barrio-tag">📍 Villa Crespo (17)</span>
+            <span class="barrio-tag">📍 Colegiales (14)</span>
+        </div>
+        
+        <button class="download-btn" onclick="downloadCSV()">
+            ⬇️ Descargar CSV Completo
+        </button>
+        
+        <div class="info">
+            <h3>📋 Columnas incluidas:</h3>
+            <ul>
+                <li>Título, Barrio, Dirección</li>
+                <li>Precio en USD</li>
+                <li>Superficie (m²), Dormitorios</li>
+                <li>Estado de construcción y Entrega</li>
+                <li>Desarrollador</li>
+                <li><strong>Latitud y Longitud</strong> (para mapas)</li>
+                <li>URL del emprendimiento</li>
+            </ul>
+        </div>
+        
+        <div class="info">
+            <h3>🗺️ Para Google Looker Studio:</h3>
+            <ul>
+                <li>Sube el CSV como fuente de datos</li>
+                <li>Configura Latitud/Longitud como números</li>
+                <li>Crea un mapa geográfico (Google Maps)</li>
+                <li>Filtra por barrio, precio o estado</li>
+            </ul>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            ✅ ¡Descarga iniciada! El archivo se guardará como emprendimientos_caba.csv
+        </div>
+    </div>
+    
+    <script>
+        const csvData = `Titulo,Barrio,Direccion,Precio_USD,Superficie_m2,Dormitorios,Unidades,Estado,Entrega,Desarrollador,Latitud,Longitud,URL
+Emprendimiento en Palermo,Palermo,AV FRANCISCO ACUÑA DE FIGUEROA 1200,104117,34-61,1 dorm.,4 un.,Terminado,,LEPORE PROPIEDADES S.A.,-34.5883,-58.4177,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--16455906
+Emprendimiento en Palermo Hollywood,Palermo,Zapata 200,117000,38-143,1 y 2 dorm.,4 un.,En pozo,Agosto 2027,GRUPO NOCITO,-34.5858,-58.4324,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo-hollywood--18300866
+Emprendimiento en Palermo,Palermo,Dorrego 1500,187680,55,1 dorm.,1 un.,En pozo,Diciembre 2025,LEPORE PROPIEDADES S.A.,-34.5822,-58.4229,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--16198848
+Emprendimiento en Palermo,Palermo,ARAOZ 1200,134500,40-56,1 dorm.,2 un.,Consultar,Abril 2025,LEPORE PROPIEDADES S.A.,-34.5877,-58.4291,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--13745558
+Emprendimiento en Palermo,Palermo,Av. Córdoba 4300,85500,37-48,1 dorm.,3 un.,En pozo,Julio 2027,LEPORE PROPIEDADES S.A.,-34.5991,-58.4153,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--15444981
+Emprendimiento en Palermo Soho,Palermo,Güemes 4700,82432,29.44-102.03,1 y 2 y 3 dorm.,35 un.,En pozo,Diciembre 2027,CLICK APARTS,-34.5876,-58.4324,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo-soho--18327128
+Emprendimiento en Palermo Hollywood,Palermo,Soler 5900,Consultar,69,1 dorm.,1 un.,Terminado,,LEPORE PROPIEDADES S.A.,-34.5846,-58.4425,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo-hollywood--16420207
+Emprendimiento en Las Cañitas,Palermo,MAURE 1500,460100,100-150,2 y 3 dorm.,2 un.,En construcción,Octubre 2027,D'ARIA,-34.5712,-58.4403,https://www.argenprop.com/emprendimientos/emprendimiento-en-las-canitas--17032865
+Emprendimiento en Palermo,Palermo,Godoy Cruz 2600,32000,33-100,1 y 2 y 3 dorm.,22 un.,En pozo,Diciembre 2027,Graciela Quintanilla Bienes Raíces,-34.5894,-58.4253,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--18236434
+Emprendimiento en Palermo Hollywood,Palermo,Humboldt 2300,215600,98,1 y 2 y 3 dorm.,1 un.,En construcción,Octubre 2025,Rosbaco & Partners,-34.5902,-58.4394,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo-hollywood--8437373
+Emprendimiento en Palermo,Palermo,MARIO BRAVO 1100,95000,33.18-62.01,1 dorm.,3 un.,Consultar,Julio 2025,D'ARIA,-34.5943,-58.4270,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--16998436
+Emprendimiento en Palermo,Palermo,Mario Bravo 1100,123095,55,1 dorm.,1 un.,En construcción,Julio 2026,CGaliano,-34.5943,-58.4270,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--16805798
+Emprendimiento en Palermo,Palermo,Malabia 1400,143000,34-42,1 dorm.,9 un.,En pozo,Diciembre 2027,Assanelli Negocios Inmobiliarios,-34.5901,-58.4309,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--18170447
+Emprendimiento en Palermo,Palermo,GODOY CRUZ 2800,97000,29-45,1 dorm.,19 un.,En pozo,Diciembre 2027,Assanelli Negocios Inmobiliarios,-34.5882,-58.4241,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--18171012
+Emprendimiento en Palermo,Palermo,Larralde 2200,82000,45,1 y 2 y 3 dorm.,2 un.,Consultar,Junio 2025,Rosbaco & Partners,-34.5712,-58.4431,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--8437239
+Emprendimiento en Palermo Viejo,Palermo,Mario Bravo 1100,128000,55-63,1 dorm.,4 un.,En construcción,Junio 2026,F. Bentancur & Lj Aceto,-34.5943,-58.4270,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo-viejo--11647931
+Emprendimiento en Palermo,Palermo,Humboldt 2300,122900,31-67,1 y 2 dorm.,7 un.,En construcción,Diciembre 2027,Palau Propiedades,-34.5902,-58.4394,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--17037184
+Emprendimiento en Palermo,Palermo,Malabia 1100,109000,36,1 dorm.,1 un.,Terminado,,,-34.5943,-58.4324,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--15783328
+Emprendimiento en Palermo,Palermo,Cabello 3800,529400,101-143,2 y 3 dorm.,3 un.,En construcción,Junio 2026,Palau Propiedades,-34.5744,-58.4201,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--14710043
+Emprendimiento en Palermo,Palermo,Avenida Cerviño 3900,455300,84-142,2 y 3 dorm.,5 un.,En construcción,Julio 2027,Palau Propiedades,-34.5767,-58.4188,https://www.argenprop.com/emprendimientos/emprendimiento-en-palermo--14745247
+Emprendimiento en Belgrano,Belgrano,Amenábar 2500,149000,52.55-68.3,1 y 2 dorm.,2 un.,En pozo,Abril 2028,Gomez de Montanari Desarollos Inmobiliarios,-34.5589,-58.4524,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--17475138
+Emprendimiento en Belgrano C,Belgrano,Montañeses 2200,70800,26-88,1 y 2 y 3 dorm.,4 un.,En pozo,Marzo 2028,Rosbaco & Partners,-34.5548,-58.4543,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano-c--15242110
+Emprendimiento en Belgrano,Belgrano,MIGUELETES 2300,220000,51-76.54,2 y 3 dorm.,2 un.,En construcción,Octubre 2025,D'ARIA,-34.5553,-58.4501,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--17766958
+Emprendimiento en Belgrano,Belgrano,Olleros 2600,112000,40-77,1 dorm.,3 un.,Consultar,Octubre 2025,AGUERO DESARROLLOS INMOBILIARIOS,-34.5591,-58.4519,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--17207276
+Emprendimiento en Belgrano C,Belgrano,Mendoza 2100,91000,29.21-42.18,1 y 2 dorm.,10 un.,Terminado,,Dic Propiedades S.A.,-34.5553,-58.4586,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano-c--14040014
+Emprendimiento en Belgrano,Belgrano,Av Cramer 2400,202972,189,2 y 3 y 4 dorm.,1 un.,En pozo,Agosto 2026,Rosbaco & Partners,-34.5556,-58.4535,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--8947892
+Emprendimiento en Belgrano,Belgrano,Migueletes 1600,325208,83.99-133.22,2 dorm.,7 un.,En pozo,Diciembre 2025,D'ARIA,-34.5628,-58.4502,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--16933204
+Emprendimiento en Belgrano C,Belgrano,Av. Cabildo 2500,129201,38.19-88,1 y 2 y 3 dorm.,3 un.,En pozo,Octubre 2027,D'ARIA,-34.5622,-58.4585,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano-c--16033817
+Emprendimiento en Belgrano,Belgrano,Avenida Congreso 2700,113000,34.5-62,1 y 2 dorm.,15 un.,En pozo,Octubre 2027,Graciela Quintanilla Bienes Raíces,-34.5537,-58.4639,https://www.argenprop.com/emprendimientos/emprendimiento-en

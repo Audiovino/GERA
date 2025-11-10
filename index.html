@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leiserson Gerardo - Real Estate Advisor</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.25.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+
+    <!-- Leaflet JS (must be loaded before the app) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <style>
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .custom-popup .leaflet-popup-content-wrapper {
+        background: transparent;
+        box-shadow: none;
+        border-radius: 12px;
+      }
+      .custom-popup .leaflet-popup-content {
+        margin: 0;
+        padding: 0;
+      }
+      .custom-popup .leaflet-popup-tip {
+        background: #2d3748; /* Corresponds to bg-gray-800 */
+      }
+      /* Custom styles for Leaflet zoom control position */
+      .leaflet-top.leaflet-left {
+          position: absolute !important;
+          top: 50% !important;
+          left: 10px !important;
+          transform: translateY(-50%) !important;
+          margin: 0 !important;
+      }
+    </style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
