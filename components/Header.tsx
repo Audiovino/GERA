@@ -63,6 +63,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToRef }) => {
     
     const navItems = [
         { name: t('nav.inicio'), ref: 'inicio'},
+        { name: t('nav.vender'), ref: 'vender'},
         { name: t('nav.experiencia'), ref: 'experiencia'},
         { name: t('nav.barrios'), ref: 'barrios'},
         { name: t('nav.desarrollos'), ref: 'desarrollos'},

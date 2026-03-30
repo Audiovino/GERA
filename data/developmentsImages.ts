@@ -8,7 +8,7 @@ export const barrioImages: { [key: string]: string } = {
     "Colegiales": "https://images.unsplash.com/photo-1620392496263-33604f857865?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "Villa Urquiza": "https://audiovino.github.io/imagenes-publicas/public/villa_urquiza.png",
     "Caballito": "https://images.unsplash.com/photo-1605276374104-dee2a2ed3cd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "Puerto Madero": "https://audiovino.github.io/imagenes-publicas/public/puertomadero.png",
+    "Puerto Madero": "https://audiovino.github.io/imagenes-publicas/public/puertomadero_copia.png",
     "San Telmo": "https://images.unsplash.com/photo-1592518453538-422a5a5f6e81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "Saavedra": "https://audiovino.github.io/imagenes-publicas/public/saavedra.png",
     "Coghlan": "https://audiovino.github.io/imagenes-publicas/public/coghlan_copia.png",

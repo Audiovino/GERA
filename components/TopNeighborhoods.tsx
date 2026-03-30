@@ -19,7 +19,7 @@ const neighborhoods = [
   },
   {
     name: 'Puerto Madero',
-    image: `https://audiovino.github.io/imagenes-publicas/public/puertomadero.png?v=${VERSION}`,
+    image: `https://audiovino.github.io/imagenes-publicas/public/puertomadero_copia.png?v=${VERSION}`,
     price: 'USD 4706/m²',
     change: '+4%'
   },

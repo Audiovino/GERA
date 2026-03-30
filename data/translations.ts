@@ -5,6 +5,7 @@ import { Translations } from '../types';
 const es = {
   nav: {
     inicio: 'Inicio',
+    vender: 'Vender Propiedad',
     experiencia: 'Experiencia',
     barrios: 'Barrios',
     desarrollos: 'Desarrollos',
@@ -20,26 +21,92 @@ const es = {
     heading: 'Gerardo Leiserson',
     description: 'Te ayudo a encontrar la propiedad de tus sueños y a navegar el mercado inmobiliario de Buenos Aires con confianza y conocimiento experto.',
     ctaAppointment: 'Agendar Reunión',
+    ctaSell: 'Vender Propiedad',
     ctaWhatsapp: 'Contactar por WhatsApp',
+    ctaServices: 'Servicios',
     talkWithUs: '¡Hablemos!'
   },
+  servicesModal: {
+    title: 'Servicios de Marketing Digital Inmobiliario',
+    subtitle: 'Soluciones visuales y estratégicas para potenciar tus desarrollos y propiedades.',
+    requestQuote: 'Solicitar Cotización',
+    services: [
+      {
+        title: 'Renders Arquitectónicos',
+        description: 'Visualizaciones 3D hiperrealistas que dan vida a tus proyectos antes de construirlos.'
+      },
+      {
+        title: 'Videos de Efecto Construcción',
+        description: 'Animaciones impactantes que muestran el proceso de construcción de tu desarrollo en segundos.'
+      },
+      {
+        title: 'Video Drone para Interiores',
+        description: 'Recorridos FPV (First Person View) inmersivos que ofrecen una perspectiva única de cada espacio.'
+      },
+      {
+        title: 'Marketing para Desarrollos',
+        description: 'Planes mensuales integrales para la promoción y captación de leads en proyectos inmobiliarios.'
+      },
+      {
+        title: 'Fotografía de Propiedades',
+        description: 'Imágenes profesionales de alta calidad que resaltan lo mejor de cada propiedad para atraer compradores.'
+      },
+      {
+        title: 'Showroom Virtual (VR)',
+        description: 'Experiencias de realidad virtual para que los clientes exploren desarrollos en pozo como si ya estuvieran allí.'
+      }
+    ],
+    quoteTag: 'A Cotizar'
+  },
+  sellProperty: {
+    title: 'Maximizá el Valor de Tu Propiedad',
+    subtitle: 'Descubrí cómo la presentación correcta y el análisis de potencial pueden transformar tu venta.',
+    staging: {
+      title: 'El Poder del Home Staging',
+      description: 'Una propiedad bien presentada se vende más rápido y a un mejor precio. El home staging crea un ambiente atractivo y acogedor que permite a los compradores imaginarse viviendo allí.',
+      before: 'Antes',
+      after: 'Después'
+    },
+    developer: {
+      title: 'Su Propiedad es Valorada por los Desarrolladores',
+      question: '¿Sabías que tu casa o terreno puede ser un tesoro para un desarrollador?',
+      description: 'La normativa de construcción en CABA permite diversas posibilidades. Analizo el potencial constructivo de tu lote para presentarlo a desarrolladores, maximizando su valor. Desde edificios de categoría hasta complejos modernos, estas son algunas de las tipologías posibles:',
+    },
+    cta: 'Solicitar más información'
+  },
   experience: {
-      title: 'Mi Experiencia a Tu Servicio',
-      subtitle: 'Transformando transacciones en relaciones duraderas.',
-      cards: [
-          {
-              title: 'Conocimiento Profundo del Mercado',
-              description: 'Análisis constante de tendencias y valores para asegurar la mejor inversión y el precio justo en cada operación.',
-          },
-          {
-              title: 'Negociación Estratégica',
-              description: 'Habilidad y experiencia para defender tus intereses, logrando acuerdos beneficiosos y cierres exitosos.',
-          },
-          {
-              title: 'Enfoque Personalizado',
-              description: 'Entiendo que cada cliente es único. Mi servicio se adapta a tus necesidades, asegurando una experiencia transparente y sin estrés.',
-          },
-      ],
+    title: 'Mi Experiencia a Tu Servicio',
+    subtitle: 'Transformando transacciones en relaciones duraderas.',
+    testimonials: [
+      {
+          id: 'sofia-martinez',
+          name: 'Sofía Martínez',
+          deal: 'Venta de PH en Villa Crespo',
+          quote: 'Gerardo revolucionó nuestra estrategia de marketing. Entendió perfectamente el mercado y nos posicionó como líderes en la zona. ¡Resultados increíbles!',
+          rating: 5
+      },
+      {
+          id: 'ana-garcia',
+          name: 'Ana y Juan Pérez',
+          deal: 'Compra de 2 Ambientes en Belgrano',
+          quote: 'El acompañamiento de Gerardo fue clave. Nos guió en cada paso con una paciencia y un profesionalismo que superaron nuestras expectativas. Encontramos nuestro primer hogar gracias a él.',
+          rating: 5
+      },
+      {
+          id: 'jorge-fernandez',
+          name: 'Jorge Fernández',
+          deal: 'Inversión en Pozo - Palermo',
+          quote: 'Su análisis de mercado fue clave para tomar la decisión correcta. Encontró una oportunidad que no estaba en el radar de nadie. Totalmente confiable y recomendado para inversores.',
+          rating: 5
+      },
+      {
+          id: 'laura-gomez',
+          name: 'Laura Gómez',
+          deal: 'Venta de Departamento Familiar',
+          quote: 'Vender la casa de toda una vida era un paso difícil. Gerardo lo hizo simple, transparente y humano. No podríamos haber elegido a un mejor profesional para este momento.',
+          rating: 5
+      }
+    ]
   },
   neighborhoods: {
       title: 'Explorá los Barrios de Buenos Aires',
@@ -526,6 +593,7 @@ export const translations: Translations = {
   pt: {
     nav: {
         inicio: "Início",
+        vender: 'Vender Imóvel',
         experiencia: "Experiência",
         barrios: "Bairros",
         desarrollos: "Desenvolvimentos",
@@ -541,26 +609,92 @@ export const translations: Translations = {
         heading: 'Gerardo Leiserson',
         description: 'Ajudo você a encontrar o imóvel dos seus sonhos e a navegar no mercado imobiliário de Buenos Aires com confiança e conhecimento especializado.',
         ctaAppointment: 'Agendar Reunião',
+        ctaSell: 'Vender Imóvel',
         ctaWhatsapp: 'Contatar por WhatsApp',
+        ctaServices: 'Serviços',
         talkWithUs: 'Vamos Conversar!'
+    },
+    servicesModal: {
+      title: 'Serviços de Marketing Digital Imobiliário',
+      subtitle: 'Soluções visuais e estratégicas para impulsionar seus empreendimentos e imóveis.',
+      requestQuote: 'Solicitar Orçamento',
+      services: [
+        {
+          title: 'Renders Arquitetônicos',
+          description: 'Visualizações 3D hiper-realistas que dão vida aos seus projetos antes de serem construídos.'
+        },
+        {
+          title: 'Vídeos de Efeito de Construção',
+          description: 'Animações impactantes que mostram o processo de construção do seu empreendimento em segundos.'
+        },
+        {
+          title: 'Vídeo com Drone para Interiores',
+          description: 'Tours FPV (First Person View) imersivos que oferecem uma perspectiva única de cada espaço.'
+        },
+        {
+          title: 'Marketing para Empreendimentos',
+          description: 'Planos mensais completos para promoção e captação de leads em projetos imobiliários.'
+        },
+        {
+          title: 'Fotografia de Imóveis',
+          description: 'Imagens profissionais de alta qualidade que destacam o melhor de cada imóvel para atrair compradores.'
+        },
+        {
+          title: 'Showroom Virtual (VR)',
+          description: 'Experiências de realidade virtual para que os clientes explorem empreendimentos na planta como se já estivessem lá.'
+        }
+      ],
+      quoteTag: 'A Orçar'
+    },
+    sellProperty: {
+        title: 'Maximize o Valor do Seu Imóvel',
+        subtitle: 'Descubra como a apresentação correta e a análise de potencial podem transformar sua venda.',
+        staging: {
+          title: 'O Poder do Home Staging',
+          description: 'Um imóvel bem apresentado vende mais rápido e por um preço melhor. O home staging cria um ambiente atraente e acolhedor que permite aos compradores imaginarem-se a viver lá.',
+          before: 'Antes',
+          after: 'Depois'
+        },
+        developer: {
+          title: 'Seu Imóvel é Valorizado por Construtoras',
+          question: 'Você sabia que sua casa ou terreno pode ser um tesouro para uma construtora?',
+          description: 'As normas de construção em CABA permitem várias possibilidades. Analiso o potencial construtivo do seu lote para apresentá-lo a construtoras, maximizando seu valor. De edifícios de categoria a complexos modernos, estas são algumas das tipologias possíveis:',
+        },
+        cta: 'Solicitar mais informações'
     },
     experience: {
         title: 'Minha Experiência ao Seu Serviço',
         subtitle: 'Transformando transações em relacionamentos duradouros.',
-        cards: [
+        testimonials: [
             {
-                title: 'Conhecimento Profundo do Mercado',
-                description: 'Análise constante de tendências e valores para garantir o melhor investimento e o preço justo em cada operação.',
+                id: 'sofia-martinez',
+                name: 'Sofía Martínez',
+                deal: 'Venda de Cobertura em Villa Crespo',
+                quote: 'Gerardo revolucionou nossa estratégia de marketing. Ele entendeu perfeitamente o mercado e nos posicionou como líderes na área. Resultados incríveis!',
+                rating: 5
             },
             {
-                title: 'Negociação Estratégica',
-                description: 'Habilidade e experiência para defender seus interesses, alcançando acordos benéficos e fechamentos bem-sucedidos.',
+                id: 'ana-garcia',
+                name: 'Ana e Juan Pérez',
+                deal: 'Compra de Apartamento de 1 Quarto em Belgrano',
+                quote: 'O acompanhamento de Gerardo foi fundamental. Ele nos guiou em cada passo com uma paciência e profissionalismo que superaram nossas expectativas. Encontramos nosso primeiro lar graças a ele.',
+                rating: 5
             },
             {
-                title: 'Abordagem Personalizada',
-                description: 'Entendo que cada cliente é único. Meu serviço se adapta às suas necessidades, garantindo uma experiência transparente e sem estresse.',
+                id: 'jorge-fernandez',
+                name: 'Jorge Fernández',
+                deal: 'Investimento na Planta - Palermo',
+                quote: 'Sua análise de mercado foi crucial para tomar a decisão certa. Ele encontrou uma oportunidade que não estava no radar de ninguém. Totalmente confiável e recomendado para investidores.',
+                rating: 5
             },
-        ],
+            {
+                id: 'laura-gomez',
+                name: 'Laura Gómez',
+                deal: 'Venda de Apartamento Familiar',
+                quote: 'Vender a casa de uma vida inteira era um passo difícil. Gerardo tornou tudo simples, transparente e humano. Não poderíamos ter escolhido um profissional melhor para este momento.',
+                rating: 5
+            }
+        ]
     },
     neighborhoods: {
         title: 'Explore os Bairros de Buenos Aires',
@@ -791,6 +925,112 @@ export const translations: Translations = {
     }
   },
   en: {
+    nav: {
+        ...es.nav,
+        inicio: "Home",
+        vender: 'Sell Property',
+        experiencia: "Experience",
+        barrios: "Neighborhoods",
+        desarrollos: "Developments",
+        financialTools: "Tools",
+        referidos: "My Referrals",
+        guias: "Guides",
+        contacto: "Contact"
+    },
+    hero: {
+        ...es.hero,
+        subheading: 'REAL ESTATE MARKETING',
+        heading: 'Gerardo Leiserson',
+        description: 'I help you find the property of your dreams and navigate the Buenos Aires real estate market with confidence and expert knowledge.',
+        ctaAppointment: 'Schedule Meeting',
+        ctaSell: 'Sell Property',
+        ctaWhatsapp: 'Contact on WhatsApp',
+        ctaServices: 'Services',
+        talkWithUs: 'Let\'s Talk!'
+    },
+     servicesModal: {
+      title: 'Digital Real Estate Marketing Services',
+      subtitle: 'Visual and strategic solutions to boost your developments and properties.',
+      requestQuote: 'Request a Quote',
+      services: [
+        {
+          title: 'Architectural Renders',
+          description: 'Hyper-realistic 3D visualizations that bring your projects to life before construction.'
+        },
+        {
+          title: 'Construction Effect Videos',
+          description: 'Impactful animations that show the construction process of your development in seconds.'
+        },
+        {
+          title: 'Interior Drone Videos',
+          description: 'Immersive FPV (First Person View) tours offering a unique perspective of every space.'
+        },
+        {
+          title: 'Marketing for Developments',
+          description: 'Comprehensive monthly plans for promoting and capturing leads for real estate projects.'
+        },
+        {
+          title: 'Property Photography',
+          description: 'High-quality professional images that highlight the best of each property to attract buyers.'
+        },
+        {
+          title: 'Virtual Showrooms (VR)',
+          description: 'Virtual reality experiences for clients to explore off-plan developments as if they were already there.'
+        }
+      ],
+      quoteTag: 'To Be Quoted'
+    },
+    sellProperty: {
+        title: 'Maximize Your Property\'s Value',
+        subtitle: 'Discover how proper presentation and potential analysis can transform your sale.',
+        staging: {
+          title: 'The Power of Home Staging',
+          description: 'A well-presented property sells faster and at a better price. Home staging creates an attractive and inviting atmosphere that allows buyers to imagine themselves living there.',
+          before: 'Before',
+          after: 'After'
+        },
+        developer: {
+          title: 'Your Property is Valued by Developers',
+          question: 'Did you know your house or land could be a treasure for a developer?',
+          description: 'CABA\'s building regulations allow for various possibilities. I analyze the construction potential of your lot to present it to developers, maximizing its value. From luxury buildings to modern complexes, these are some of the possible typologies:',
+        },
+        cta: 'Request More Information'
+    },
+    experience: {
+        ...es.experience,
+        title: 'My Experience at Your Service',
+        subtitle: 'Turning transactions into lasting relationships.',
+        testimonials: [
+            {
+                id: 'sofia-martinez',
+                name: 'Sofía Martínez',
+                deal: 'Sale of a PH in Villa Crespo',
+                quote: 'Gerardo revolutionized our marketing strategy. He perfectly understood the market and positioned us as leaders in the area. Incredible results!',
+                rating: 5
+            },
+            {
+                id: 'ana-garcia',
+                name: 'Ana & Juan Pérez',
+                deal: 'Purchase of a 1-Bedroom in Belgrano',
+                quote: "Gerardo's guidance was key. He walked us through each step with patience and professionalism that exceeded our expectations. We found our first home thanks to him.",
+                rating: 5
+            },
+            {
+                id: 'jorge-fernandez',
+                name: 'Jorge Fernández',
+                deal: 'Off-Plan Investment - Palermo',
+                quote: "His market analysis was crucial for making the right decision. He found an opportunity that was not on anyone else's radar. Totally trustworthy and recommended for investors.",
+                rating: 5
+            },
+            {
+                id: 'laura-gomez',
+                name: 'Laura Gómez',
+                deal: 'Sale of Family Apartment',
+                quote: "Selling our lifelong home was a difficult step. Gerardo made it simple, transparent, and humane. We couldn't have chosen a better professional for this moment.",
+                rating: 5
+            }
+        ]
+    },
     faq: {
         title: 'Frequently Asked Questions',
         subtitle: 'Answers to the most common questions about the real estate market.',

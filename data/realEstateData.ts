@@ -88,7 +88,7 @@ export const neighborhoodsData = [
     name: 'Puerto Madero',
     priceM2: 6500,
     growth: 10,
-    image: 'https://audiovino.github.io/imagenes-publicas/public/puertomadero.png',
+    image: 'https://audiovino.github.io/imagenes-publicas/public/puertomadero_copia.png',
     lat: -34.617,
     lon: -58.363,
   },

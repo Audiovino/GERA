@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import useTranslations from '../hooks/useTranslations';
 
 const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
@@ -8,37 +9,110 @@ const SectionHeader = ({ title, subtitle }: { title: string; subtitle: string })
     </div>
 );
 
-const ExperienceCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => (
-    <div className="bg-gray-800 rounded-2xl shadow-lg p-6 transform hover:-translate-y-2 transition-transform duration-300">
-        <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 text-white bg-gradient-to-r from-blue-500 to-teal-400 rounded-lg w-16 h-16 flex items-center justify-center">
-                {icon}
-            </div>
-            <div>
-                <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-                <p className="text-gray-300">{description}</p>
-            </div>
-        </div>
+const StarRating = ({ rating }: { rating: number }) => (
+    <div className="flex">
+        {[...Array(5)].map((_, i) => (
+            <svg key={i} className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-600'}`} fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.446a1 1 0 00-.364 1.118l1.287 3.955c.3.921-.755 1.688-1.539 1.118l-3.368-2.446a1 1 0 00-1.175 0l-3.368 2.446c-.784.57-1.838-.197-1.539-1.118l1.287-3.955a1 1 0 00-.364-1.118L2.07 9.382c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69L9.049 2.927z" />
+            </svg>
+        ))}
     </div>
 );
 
+
 const Experience: React.FC = () => {
     const { t } = useTranslations();
-    const cards = t('experience.cards');
+    const testimonials = t('experience.testimonials');
+    const [currentIndex, setCurrentIndex] = useState(0);
+    // FIX: In a browser environment, setTimeout returns a number, not a NodeJS.Timeout object.
+    const timeoutRef = useRef<number | null>(null);
 
-    const icons = [
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M8.5 5.5a.5.5 0 0 0-1 0v3.793l-1.146 1.147a.5.5 0 0 0 .708.708l1.5-1.5a.5.5 0 0 0 0-.708z"/><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z"/></svg>,
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M14.5 3A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5v-7A1.5 1.5 0 0 1 1.5 3zM1 4a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5z"/><path d="M7 6.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0m4.25.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0"/></svg>,
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/></svg>
-    ];
+    const resetTimeout = () => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+    };
+
+    useEffect(() => {
+        resetTimeout();
+        timeoutRef.current = setTimeout(
+            () => setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1)),
+            5000 // Change slide every 5 seconds
+        );
+
+        return () => {
+            resetTimeout();
+        };
+    }, [currentIndex, testimonials.length]);
+
+    const goToSlide = (slideIndex: number) => {
+        setCurrentIndex(slideIndex);
+    };
+    
+    const goToPrev = () => {
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? testimonials.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    };
+
+    const goToNext = () => {
+        const isLastSlide = currentIndex === testimonials.length - 1;
+        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    };
 
     return (
         <div className="container mx-auto">
             <SectionHeader title={t('experience.title')} subtitle={t('experience.subtitle')} />
-            <div className="grid md:grid-cols-3 gap-8">
-                {cards.map((card: {title: string, description: string}, index: number) => (
-                    <ExperienceCard key={card.title} icon={icons[index]} title={card.title} description={card.description} />
-                ))}
+            
+            <div 
+                className="max-w-4xl mx-auto relative h-80"
+                onMouseEnter={() => resetTimeout()}
+                onMouseLeave={() => {
+                     timeoutRef.current = setTimeout(
+                        () => setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1)),
+                        5000
+                    );
+                }}
+            >
+                <div className="overflow-hidden h-full relative">
+                    {testimonials.map((testimonial: any, index: number) => (
+                        <div
+                            key={testimonial.id}
+                            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                        >
+                            <div className="bg-gray-800 rounded-2xl shadow-lg p-8 h-full flex flex-col justify-center items-center text-center">
+                                <StarRating rating={testimonial.rating} />
+                                <blockquote className="text-xl italic text-gray-300 my-4">
+                                    "{testimonial.quote}"
+                                </blockquote>
+                                <div className="mt-2">
+                                    <p className="font-bold text-white">{testimonial.name}</p>
+                                    <p className="text-sm text-blue-400">{testimonial.deal}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Left Arrow */}
+                <button onClick={goToPrev} className="absolute top-1/2 -translate-y-1/2 left-0 md:-left-12 z-20 p-2 bg-gray-700/50 hover:bg-gray-600 rounded-full transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                {/* Right Arrow */}
+                <button onClick={goToNext} className="absolute top-1/2 -translate-y-1/2 right-0 md:-right-12 z-20 p-2 bg-gray-700/50 hover:bg-gray-600 rounded-full transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+                </button>
+                
+                <div className="absolute bottom-[-30px] w-full flex justify-center gap-2">
+                    {testimonials.map((_: any, index: number) => (
+                        <button
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            className={`h-2 w-2 rounded-full transition-all duration-300 ${currentIndex === index ? 'w-6 bg-blue-500' : 'bg-gray-600 hover:bg-gray-500'}`}
+                        ></button>
+                    ))}
+                </div>
             </div>
         </div>
     );
