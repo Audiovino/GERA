@@ -241,4 +241,23 @@ Emprendimiento en Belgrano C,Belgrano,Mendoza 2100,91000,29.21-42.18,1 y 2 dorm.
 Emprendimiento en Belgrano,Belgrano,Av Cramer 2400,202972,189,2 y 3 y 4 dorm.,1 un.,En pozo,Agosto 2026,Rosbaco & Partners,-34.5556,-58.4535,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--8947892
 Emprendimiento en Belgrano,Belgrano,Migueletes 1600,325208,83.99-133.22,2 dorm.,7 un.,En pozo,Diciembre 2025,D'ARIA,-34.5628,-58.4502,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--16933204
 Emprendimiento en Belgrano C,Belgrano,Av. Cabildo 2500,129201,38.19-88,1 y 2 y 3 dorm.,3 un.,En pozo,Octubre 2027,D'ARIA,-34.5622,-58.4585,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano-c--16033817
-Emprendimiento en Belgrano,Belgrano,Avenida Congreso 2700,113000,34.5-62,1 y 2 dorm.,15 un.,En pozo,Octubre 2027,Graciela Quintanilla Bienes Raíces,-34.5537,-58.4639,https://www.argenprop.com/emprendimientos/emprendimiento-en
+Emprendimiento en Belgrano,Belgrano,Avenida Congreso 2700,113000,34.5-62,1 y 2 dorm.,15 un.,En pozo,Octubre 2027,Graciela Quintanilla Bienes Raíces,-34.5537,-58.4639,https://www.argenprop.com/emprendimientos/emprendimiento-en-belgrano--18236434`;
+
+        function downloadCSV() {
+            const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "emprendimientos_caba.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            const msg = document.getElementById('successMessage');
+            msg.style.display = 'block';
+            setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        }
+    </script>
+</body>
+</html>
