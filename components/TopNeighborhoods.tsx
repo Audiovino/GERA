@@ -82,7 +82,7 @@ const TopNeighborhoods: React.FC = () => {
               key={neighborhood.name}
               className="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={neighborhood.image}
                   alt={neighborhood.name}

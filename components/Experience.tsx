@@ -66,7 +66,7 @@ const Experience: React.FC = () => {
             <SectionHeader title={t('experience.title')} subtitle={t('experience.subtitle')} />
             
             <div 
-                className="max-w-4xl mx-auto relative h-80"
+                className="max-w-4xl mx-auto relative min-h-[320px]"
                 onMouseEnter={() => resetTimeout()}
                 onMouseLeave={() => {
                      timeoutRef.current = setTimeout(
@@ -75,13 +75,13 @@ const Experience: React.FC = () => {
                     );
                 }}
             >
-                <div className="overflow-hidden h-full relative">
+                <div className="overflow-hidden relative">
                     {testimonials.map((testimonial: any, index: number) => (
                         <div
                             key={testimonial.id}
-                            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                            className={`absolute top-0 left-0 w-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                         >
-                            <div className="bg-gray-800 rounded-2xl shadow-lg p-8 h-full flex flex-col justify-center items-center text-center">
+                            <div className="bg-gray-800 rounded-2xl shadow-lg p-8 flex flex-col justify-center items-center text-center">
                                 <StarRating rating={testimonial.rating} />
                                 <blockquote className="text-xl italic text-gray-300 my-4">
                                     "{testimonial.quote}"

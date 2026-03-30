@@ -100,7 +100,7 @@ const App: React.FC = () => {
 
   return (
     <LanguageProvider>
-      <div className="bg-gray-900 text-gray-300 font-sans">
+      <div className="bg-gray-900 text-gray-300 font-sans overflow-x-hidden">
         <Header scrollToRef={scrollToRef} />
         <main>
           <section ref={refs.inicio}>

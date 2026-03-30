@@ -22,7 +22,7 @@ const Hero: React.FC<HeroProps> = ({ scrollToContact, scrollToSell, openServices
         <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-[calc(100vh-80px)] text-white flex items-center justify-center text-center px-4 py-20">
             <div className="max-w-4xl flex flex-col items-center">
                 <img
-                    src="https://i.imgur.com/0AyeYpL.jpeg"
+                    src="/perfil.png"
                     alt="Leiserson Gerardo"
                     className="w-48 h-48 rounded-full object-cover object-top border-4 border-gray-700 shadow-xl mb-6 transform hover:scale-105 transition-transform duration-300"
                 />

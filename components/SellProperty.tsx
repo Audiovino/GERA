@@ -47,9 +47,9 @@ const SellProperty: React.FC<{ scrollToContact: () => void }> = ({ scrollToConta
                         <p className="text-2xl italic text-blue-300">{t('sellProperty.developer.question')}</p>
                     </div>
                     <p className="text-gray-400 mb-8 text-center max-w-3xl mx-auto">{t('sellProperty.developer.description')}</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {renders.map((render, index) => (
-                            <img key={index} src={render.src} alt={render.alt} className="rounded-lg shadow-lg w-full h-64 object-cover transform hover:scale-105 transition-transform duration-300" />
+                            <img key={index} src={render.src} alt={render.alt} className="rounded-lg shadow-lg w-full h-48 md:h-64 object-cover transform hover:scale-105 transition-transform duration-300" />
                         ))}
                     </div>
                 </div>
