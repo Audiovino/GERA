@@ -25,7 +25,9 @@ const DevelopmentCard: React.FC<{ dev: Development, onSelect: (dev: Development)
             className={`bg-gray-800 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${isSelected ? 'border-blue-500 shadow-blue-500/30 shadow-lg' : 'border-transparent hover:border-gray-600'}`}
             onClick={() => onSelect(dev)}
         >
-            <img src={image} alt={dev.nombre} className="w-full h-48 object-cover" loading="lazy" />
+            <div className="bg-gray-700 h-48 flex items-center justify-center">
+                <img src={image} alt={dev.nombre} className="max-w-full max-h-full object-contain" loading="lazy" />
+            </div>
             <div className="p-4">
                 <h3 className="text-md font-bold text-white truncate">{cleanName(dev.nombre)}</h3>
                 <p className="text-sm text-gray-400">{dev.direccion}</p>

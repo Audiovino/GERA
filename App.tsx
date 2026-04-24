@@ -22,6 +22,7 @@ import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 import GoogleFormModal from './components/GoogleFormModal';
 import ServicesModal from './components/ServicesModal';
 
+// Force sync to GitHub - update profile image path v2
 const App: React.FC = () => {
   const refs: { [key: string]: React.RefObject<HTMLElement> } = {
     inicio: useRef<HTMLElement>(null),

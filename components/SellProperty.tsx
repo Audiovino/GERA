@@ -31,11 +31,11 @@ const SellProperty: React.FC<{ scrollToContact: () => void }> = ({ scrollToConta
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div className="text-center">
                             <h4 className="text-xl font-semibold text-red-400 mb-2">{t('sellProperty.staging.before')}</h4>
-                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop" alt="Antes del home staging" className="rounded-lg shadow-lg w-full h-auto aspect-video object-cover" />
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop" alt="Antes del home staging" className="rounded-lg shadow-lg w-full h-auto aspect-video object-contain bg-gray-800" />
                         </div>
                         <div className="text-center">
                             <h4 className="text-xl font-semibold text-green-400 mb-2">{t('sellProperty.staging.after')}</h4>
-                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" alt="Después del home staging" className="rounded-lg shadow-lg w-full h-auto aspect-video object-cover" />
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" alt="Después del home staging" className="rounded-lg shadow-lg w-full h-auto aspect-video object-contain bg-gray-800" />
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,9 @@ const SellProperty: React.FC<{ scrollToContact: () => void }> = ({ scrollToConta
                     <p className="text-gray-400 mb-8 text-center max-w-3xl mx-auto">{t('sellProperty.developer.description')}</p>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {renders.map((render, index) => (
-                            <img key={index} src={render.src} alt={render.alt} className="rounded-lg shadow-lg w-full h-48 md:h-64 object-cover transform hover:scale-105 transition-transform duration-300" />
+                            <div key={index} className="bg-gray-800 rounded-lg overflow-hidden h-48 md:h-64 flex items-center justify-center">
+                                <img src={render.src} alt={render.alt} className="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300" />
+                            </div>
                         ))}
                     </div>
                 </div>

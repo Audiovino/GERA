@@ -22,9 +22,10 @@ const Hero: React.FC<HeroProps> = ({ scrollToContact, scrollToSell, openServices
         <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-[calc(100vh-80px)] text-white flex items-center justify-center text-center px-4 py-20">
             <div className="max-w-4xl flex flex-col items-center">
                 <img
-                    src="/perfil.png"
+                    src={`/perfil_v2.png?v=${Date.now()}`}
                     alt="Leiserson Gerardo"
-                    className="w-48 h-48 rounded-full object-cover object-top border-4 border-gray-700 shadow-xl mb-6 transform hover:scale-105 transition-transform duration-300"
+                    className="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-contain bg-gray-800/50 border-4 border-gray-700 shadow-xl mb-6 transform hover:scale-105 transition-transform duration-300"
+                    referrerPolicy="no-referrer"
                 />
                 
                 <p className="text-lg text-blue-400 font-semibold tracking-wider mb-2">{t('hero.subheading')}</p>

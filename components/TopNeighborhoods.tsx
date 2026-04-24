@@ -82,11 +82,11 @@ const TopNeighborhoods: React.FC = () => {
               key={neighborhood.name}
               className="bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-56 overflow-hidden bg-gray-700">
                 <img
                   src={neighborhood.image}
                   alt={neighborhood.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-110"
                   loading="lazy"
                   onError={(e) => {
                     const target = e.currentTarget;
