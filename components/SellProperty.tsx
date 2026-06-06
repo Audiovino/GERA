@@ -13,9 +13,9 @@ const SellProperty: React.FC<{ scrollToContact: () => void }> = ({ scrollToConta
     const { t } = useTranslations();
 
     const renders = [
-        { src: 'https://images.unsplash.com/photo-1582463223914-257a07010fcd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Render de edificio moderno' },
-        { src: 'https://images.unsplash.com/photo-1628012242823-37295a021873?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Render de torre de apartamentos' },
-        { src: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Render de complejo residencial' },
+        { src: '/render_edificio_moderno.png', alt: 'Render de edificio moderno' },
+        { src: '/render_torre_apartamentos.png', alt: 'Render de torre de apartamentos' },
+        { src: '/render_complejo_residencial.png', alt: 'Render de complejo residencial' },
     ];
 
     return (
@@ -50,7 +50,7 @@ const SellProperty: React.FC<{ scrollToContact: () => void }> = ({ scrollToConta
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {renders.map((render, index) => (
                             <div key={index} className="bg-gray-800 rounded-lg overflow-hidden h-48 md:h-64 flex items-center justify-center">
-                                <img src={render.src} alt={render.alt} className="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300" />
+                                <img src={render.src} alt={render.alt} className="max-w-full max-h-full object-contain transform hover:scale-105 transition-transform duration-300" referrerPolicy="no-referrer" />
                             </div>
                         ))}
                     </div>

@@ -197,7 +197,7 @@ NO ofrezcas servicios de "tasación" ni uses esa palabra, ya que no sos martille
             <div className="flex items-center justify-between p-4 bg-gray-900 rounded-t-2xl flex-shrink-0">
                 <div className="flex items-center space-x-3">
                     <div className="relative">
-                        <img src="https://i.imgur.com/0AyeYpL.jpeg" alt="Gerardo" className="w-10 h-10 rounded-full object-cover" />
+                        <img src="/soldati_final.png" alt="Gerardo" className="w-10 h-10 rounded-full object-cover bg-gray-800" />
                         <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-gray-900"></span>
                     </div>
                     <div>
@@ -209,11 +209,11 @@ NO ofrezcas servicios de "tasación" ni uses esa palabra, ya que no sos martille
             </div>
 
             {/* Messages */}
-            <div className="flex-1 p-4 overflow-y-auto">
+            <div className="flex-1 p-4 overflow-y-auto font-sans">
                 <div className="space-y-4">
                     {messages.map((msg, index) => (
                         <div key={index} className={`flex items-end gap-2 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                            {msg.sender === 'ai' && <img src="https://i.imgur.com/0AyeYpL.jpeg" alt="Gerardo" className="w-6 h-6 rounded-full self-start flex-shrink-0" />}
+                            {msg.sender === 'ai' && <img src="/soldati_final.png" alt="Gerardo" className="w-6 h-6 rounded-full self-start flex-shrink-0 object-cover bg-gray-800" />}
                             <div className={`rounded-lg px-3 py-2 max-w-[85%] break-words ${msg.sender === 'user' ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-700 text-gray-300 rounded-bl-none'}`}>
                                 {msg.text}
                             </div>

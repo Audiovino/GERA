@@ -4,7 +4,6 @@ import { LanguageProvider } from './context/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SellProperty from './components/SellProperty';
-import Experience from './components/Experience';
 import Neighborhoods from './components/Neighborhoods';
 import TopNeighborhoods from './components/TopNeighborhoods';
 import Developments from './components/Developments';
@@ -27,7 +26,6 @@ const App: React.FC = () => {
   const refs: { [key: string]: React.RefObject<HTMLElement> } = {
     inicio: useRef<HTMLElement>(null),
     vender: useRef<HTMLElement>(null),
-    experiencia: useRef<HTMLElement>(null),
     barrios: useRef<HTMLElement>(null),
     desarrollos: useRef<HTMLElement>(null),
     financialTools: useRef<HTMLElement>(null),
@@ -114,10 +112,6 @@ const App: React.FC = () => {
 
           <section ref={refs.vender} className="py-20 px-4 md:px-8 bg-gray-800">
             <SellProperty scrollToContact={() => scrollToRef('contacto')} />
-          </section>
-
-          <section ref={refs.experiencia} className="py-20 px-4 md:px-8 bg-gray-900">
-            <Experience />
           </section>
 
           <section ref={refs.barrios} className="py-20 px-4 md:px-8 bg-gray-900">
